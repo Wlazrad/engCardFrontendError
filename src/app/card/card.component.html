@@ -1,0 +1,25 @@
+<div>
+  <div class="container">
+    <div>
+      <input [(ngModel)]="newTask">
+      <button (click)="add()">
+        Dodaj
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div>
+<ul>
+  <li *ngFor="let card of taskList">
+    {{card}}
+  </li>
+</ul>
+    </div>
+
+    <div>
+      Zadania wykonane
+    </div>
+  </div>
+</div>
