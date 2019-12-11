@@ -17,9 +17,14 @@ export class CardComponent implements OnInit {
     this.newTask = '';
     console.log(this.taskList);
   }
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
   }
 
+  getPosts() {
+  this.httpService.getPosts().subscribe(post =>
+  console.log(post));
+  console.log('lalal');
+  }
 }

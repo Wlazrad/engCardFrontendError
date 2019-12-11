@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
+
 @Injectable()
 export class HttpService {
 
@@ -9,7 +10,7 @@ export class HttpService {
   }
 
   getPosts(): Observable<Array<Card>> {
-   return  this.http.get<Array<Card>>('http://localhost:8080/api/cards');
+    return this.http.get<Array<Card>>('https://jsonplaceholder.typicode.com/users');
   }
 }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpService} from './http.service';
+// import {HttpService} from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,10 @@ import {HttpService} from './http.service';
 export class AppComponent {
   title = 'engCardsFrontend';
 
-  constructor(private httpService: HttpService) { }
+  // constructor(private httpService: HttpService) { }
 
-  getPosts() {
-    this.httpService.getPosts().subscribe(post =>
-      console.log(post));
-  }
+  // getPosts() {
+  //   this.httpService.getPosts().subscribe(post =>
+  //     console.log(post));
+  // }
 }
