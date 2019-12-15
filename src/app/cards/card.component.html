@@ -1,5 +1,6 @@
 <div>
   <div class="container">
+
     <div>
       <input [(ngModel)]="newTask">
       <button (click)="add()">
@@ -23,6 +24,14 @@
 
     <div>
       Zadania wykonane
+      <div>
+        <ul>
+          <li *ngFor="let card of cards">
+            {{card.hearWord}}
+            {{card.polishWord}}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
