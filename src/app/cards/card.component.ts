@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
   taskList: Array<string> = [];
   cards: Array<Card>;
 
-  add() {
+  addCard() {
     this.taskList.push(this.newTask);
     this.taskList.push('pop');
     this.newTask = '';
@@ -22,10 +22,11 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
-  getPosts() {
+   getPosts() {
   this.httpService.getPosts().subscribe(post => {
     this.cards = post;
   });
   console.log('lalal');
   }
+  postCard() {}
 }

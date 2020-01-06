@@ -3,11 +3,11 @@
 
     <div>
       <input [(ngModel)]="newTask">
-      <button (click)="add()">
+      <button mat-button color="primary" (click)="addCard()">
         Dodaj
       </button>
       <button (click)="getPosts()">
-        GET
+        Show Words
       </button>
     </div>
   </div>
@@ -21,7 +21,6 @@
   </li>
 </ul>
     </div>
-
     <div>
       Zadania wykonane
       <div>
@@ -29,6 +28,8 @@
           <li *ngFor="let card of cards">
             {{card.hearWord}}
             {{card.polishWord}}
+            {{card.pureWord}}
+            {{card.story}}
           </li>
         </ul>
       </div>
