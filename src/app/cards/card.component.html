@@ -11,14 +11,40 @@
     </div>
   </div>
 
+  <p>Add a new card</p>
+  <div>
+    <form [formGroup]="cardForm">
+      <div>
+        <label>hearWord</label>
+        <input formControlName="hearWord" type="text" class="form-control" placeholder="model">
+      </div>
+      <div>
+        <label>polishWord</label>
+        <input formControlName="polishWord" type="text" class="form-control" placeholder="model">
+      </div>
+      <div>
+        <label>pureWord</label>
+        <input formControlName="pureWord" type="text" class="form-control" placeholder="model">
+      </div>
+      <div>
+        <label>story</label>
+        <input formControlName="story" type="text" class="form-control" placeholder="model">
+      </div>
+      <div>
+        <button type="submit">Add Card</button>
+      </div>
+    </form>
+    <pre>{{cardForm.value | json}}</pre>
+  </div>
+
   <div class="container">
 
     <div>
-<ul>
-  <li *ngFor="let card of taskList">
-    {{card}}
-  </li>
-</ul>
+      <ul>
+        <li *ngFor="let card of taskList">
+          {{card}}
+        </li>
+      </ul>
     </div>
     <div>
       Zadania wykonane

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
 import {Card} from '../models/card';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-card',
@@ -11,6 +12,8 @@ export class CardComponent implements OnInit {
   newTask: string;
   taskList: Array<string> = [];
   cards: Array<Card>;
+  card: Card;
+  cardForm: FormGroup;
 
   addCard() {
     this.taskList.push(this.newTask);
@@ -18,15 +21,35 @@ export class CardComponent implements OnInit {
     this.newTask = '';
     console.log(this.taskList);
   }
-  constructor(private httpService: HttpService) { }
-  ngOnInit() {
+
+  constructor(private httpService: HttpService,
+              private formBuilder: FormBuilder) {
   }
 
-   getPosts() {
-  this.httpService.getPosts().subscribe(post => {
-    this.cards = post;
-  });
-  console.log('lalal');
+  ngOnInit() {
+    this.cardForm = this.buildCardForm();
   }
-  postCard() {}
+
+  buildCardForm() {
+    return this.formBuilder.group({
+      hearWord: '',
+      polishWord: '',
+      pureWord: '',
+      story: '',
+    });
+  }
+
+
+  getPosts() {
+    this.httpService.getPosts().subscribe(post => {
+      this.cards = post;
+    });
+    console.log('lalal');
+  }
+
+  postCard() {
+    this.httpService.addCards(this.card).subscribe(card => {
+      this.card = card;
+    });
+  }
 }
