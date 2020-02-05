@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
 import {Card} from '../models/card';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {CardService} from './card.service';
 
 @Component({
   selector: 'app-card',
@@ -15,15 +16,14 @@ export class CardComponent implements OnInit {
   card: Card;
   cardForm: FormGroup;
 
-  addCard() {
-    this.taskList.push(this.newTask);
-    this.taskList.push('pop');
-    this.newTask = '';
-    console.log(this.taskList);
-  }
 
   constructor(private httpService: HttpService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private cardService: CardService) {
+  }
+
+  addCard() {
+    this.cardService.addCard(this.cardForm.value).subscribe();
   }
 
   ngOnInit() {
@@ -47,9 +47,5 @@ export class CardComponent implements OnInit {
     console.log('lalal');
   }
 
-  postCard() {
-    this.httpService.addCards(this.card).subscribe(card => {
-      this.card = card;
-    });
-  }
+
 }

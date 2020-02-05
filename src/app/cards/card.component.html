@@ -31,7 +31,7 @@
         <input formControlName="story" type="text" class="form-control" placeholder="model">
       </div>
       <div>
-        <button type="submit">Add Card</button>
+        <button type="submit" (click)="addCard()">Add Card</button>
       </div>
     </form>
     <pre>{{cardForm.value | json}}</pre>

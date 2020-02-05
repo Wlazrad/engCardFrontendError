@@ -13,10 +13,6 @@ export class HttpService {
   getPosts(): Observable<Array<Card>> {
     return this.http.get<Array<Card>>('http://localhost:8080/api/cards');
   }
-
-  addCards(card: Card): Observable<Card> {
-    return this.http.post<Card>('http://localhost:8080/api/addCard', card);
-  }
 }
 
 
