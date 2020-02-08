@@ -49,14 +49,23 @@
     <div>
       Zadania wykonane
       <div>
-        <ul>
-          <li *ngFor="let card of cards">
-            {{card.hearWord}}
-            {{card.polishWord}}
-            {{card.pureWord}}
-            {{card.story}}
-          </li>
-        </ul>
+        <table>
+          <thead>
+          <tr>
+            <th>Hear Word</th>
+            <th>Polish Word</th>
+            <th>Pure Word</th>
+            <th>Story</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let card of cards">
+            <td>{{card.hearWord}}</td>
+            <td>{{card.polishWord}}</td>
+            <td>{{card.pureWord}}</td>
+            <td>{{card.story}}</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

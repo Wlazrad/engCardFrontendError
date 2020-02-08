@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
 import {Card} from '../models/card';
 import {FormBuilder, FormGroup} from '@angular/forms';
@@ -9,6 +9,7 @@ import {CardService} from './card.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.less']
 })
+@Injectable()
 export class CardComponent implements OnInit {
   newTask: string;
   taskList: Array<string> = [];
@@ -41,7 +42,7 @@ export class CardComponent implements OnInit {
 
 
   getPosts() {
-    this.httpService.getPosts().subscribe(post => {
+    this.cardService.getPosts().subscribe(post => {
       this.cards = post;
     });
     console.log('lalal');

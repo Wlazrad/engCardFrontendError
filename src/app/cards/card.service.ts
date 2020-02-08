@@ -17,7 +17,12 @@ export class CardService {
     return this.http.get<Array<Card>>('http://localhost:8080/api/cards');
   }
 
+  getPosts(): Observable<Array<Card>> {
+    return this.http.get<Array<Card>>('http://localhost:8080/api/cards');
+  }
+
   addCard(data): Observable<Card> {
+    this.getPosts();
     return this.http.post(this.apiUrl, data);
   }
 }
