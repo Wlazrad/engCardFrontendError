@@ -1,10 +1,6 @@
 <div>
   <div class="container">
     <div>
-      <input [(ngModel)]="newTask">
-      <button mat-button color="primary" (click)="addCard()">
-        Dodaj
-      </button>
       <button (click)="getPosts()">
         Show Words
       </button>
@@ -15,7 +11,7 @@
   <div>
     <form [formGroup]="cardForm">
       <div>
-        <label>hearWord</label>
+        <label class="radLabel">hearWord</label>
         <input formControlName="hearWord" type="text" class="form-control" placeholder="model">
       </div>
       <div>
