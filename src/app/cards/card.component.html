@@ -33,37 +33,10 @@
     <pre>{{cardForm.value | json}}</pre>
   </div>
 
-  <div class="container">
-
-    <div>
-      <ul>
-        <li *ngFor="let card of taskList">
-          {{card}}
-        </li>
-      </ul>
-    </div>
-    <div>
-      Zadania wykonane
-      <div>
-        <table>
-          <thead>
-          <tr>
-            <th>Hear Word</th>
-            <th>Polish Word</th>
-            <th>Pure Word</th>
-            <th>Story</th>
-          </thead>
-          <tbody>
-          <tr *ngFor="let card of cards">
-            <td>{{card.hearWord}}</td>
-            <td>{{card.polishWord}}</td>
-            <td>{{card.pureWord}}</td>
-            <td>{{card.story}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div>
+    <button (click)="coverCards()">
+      Cover Words
+    </button>
   </div>
-  <app-cards-list> lala</app-cards-list>
+<app-cards-list [cards]="cards"></app-cards-list>
 </div>

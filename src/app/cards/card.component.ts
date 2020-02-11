@@ -11,8 +11,6 @@ import {CardService} from './card.service';
 })
 @Injectable()
 export class CardComponent implements OnInit {
-  newTask: string;
-  taskList: Array<string> = [];
   cards: Array<Card>;
   card: Card;
   cardForm: FormGroup;
@@ -48,5 +46,10 @@ export class CardComponent implements OnInit {
     console.log('lalal');
   }
 
-
+  coverCards() {
+    this.cardService.getPosts().subscribe(post => {
+      this.cards = post;
+    });
+    console.log('lalal');
+  }
 }
